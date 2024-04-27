@@ -1,72 +1,57 @@
 #1. Importa el paquete NUMPY bajo el nombre np.
-
-#[tu código aquí]
-
+import numpy as np
 
 #2. Imprime la versión de NUMPY y la configuración.
-
-#[tu código aquí]
-
+print("Numpy version:", np.__version__)
+print("Numpy configuration:")
+np.show_config()
 
 #3. Genera un array tridimensional de 2x3x5 con valores aleatorios. Asigna el array a la variable "a"
 # Desafío: hay al menos tres maneras fáciles que usan numpy para generar arrays aleatorios. ¿Cuántas formas puedes encontrar?
-
-#[tu código aquí]
+a = np.random.random((2, 3, 5))
+# a = np.random.randn(2, 3, 5)  # Normal distribution
+# a = np.random.randint(0, 10, (2, 3, 5))  # Random integers
 
 #4. Imprime a.
+print("Array a:\n", a)
 
-#[tu código aquí]
 #5. Crea un array tridimensional de 5x2x3 con todos los valores igual a 1.
 #Asigna el array a la variable "b"
-
-#[tu código aquí]
+b = np.ones((5, 2, 3))
 
 #6. Imprime b.
-
-#[tu código aquí]
+print("Array b:\n", b)
 
 #7. ¿Tienen a y b el mismo tamaño? ¿Cómo lo demuestras en código Python?
-
-#[tu código aquí]
+print("¿Tienen a y b el mismo tamaño?", a.size == b.size)
 
 #8. ¿Es posible sumar a y b? ¿Por qué sí o por qué no?
-
-#[tu código aquí]
-
+print("¿Es posible sumar a y b?", a.shape == b.shape)  # No se pueden sumar directamente porque tienen formas diferentes.
 
 #9. Transpone b para que tenga la misma estructura que a (es decir, se convierta en un array de 2x3x5). Asigna el array transpuesto a la variable "c".
-
-#[tu código aquí]
+c = b.transpose((1, 2, 0))
 
 #10. Intenta sumar a y c. Ahora debería funcionar. Asigna la suma a la variable "d". Pero, ¿por qué funciona ahora?
-
-#[tu código aquí]
+d = a + c
 
 #11. Imprime a y d. ¿Notas la diferencia y la relación entre los dos arrays en términos de los valores? Explica.
-
-#[tu código aquí]
-
+print("Array a:\n", a)
+print("Array d:\n", d)
 
 #12. Multiplica a y c. Asigna el resultado a e.
-
-#[tu código aquí]
-
+e = a * c
 
 #13. ¿Es e igual a a? ¿Por qué sí o por qué no?
-
-#[tu código aquí]
-
+print("¿Es e igual a a?", np.array_equal(e, a))
 
 
 #14. Identifica los valores máximos, mínimos y medios en d. Asigna esos valores a las variables "d_max", "d_min" y "d_mean"
-
-#[tu código aquí]
-
+d_max = d.max()
+d_min = d.min()
+d_mean = d.mean()
 
 #15. Ahora queremos etiquetar los valores en d. Primero crea un array vacío "f" con la misma forma (es decir, 2x3x5) que d usando `np.empty`.
-
-#[tu código aquí]
-
+f = np.empty((2, 3, 5))
 
 """
 #16. Rellena los valores en f. Para cada valor en d, si es mayor que d_min pero menor que d_mean, asigna 25 al valor correspondiente en f.
